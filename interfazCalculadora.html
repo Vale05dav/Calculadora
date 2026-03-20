@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #ffe4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+}
+
+.seccion {
+    display: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1493;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div id="menu">
+        <h2>Calculadora</h2>
+        <button onclick="mostrar('suma')">Suma</button>
+        <button onclick="mostrar('resta')">Resta</button>
+        <button onclick="mostrar('multi')">Multiplicación</button>
+        <button onclick="mostrar('div')">División</button>
+    </div>
+
+    <!-- SUMA -->
+    <div id="suma" class="seccion">
+        <h3>Suma</h3>
+        <input type="number" placeholder="Número 1">
+        <input type="number" placeholder="Número 2">
+        <button>Calcular</button>
+        <button onclick="volver()">⬅ Volver</button>
+    </div>
+
+    <!-- RESTA -->
+    <div id="resta" class="seccion">
+        <h3>Resta</h3>
+        <input type="number">
+        <input type="number">
+        <button>Calcular</button>
+        <button onclick="volver()">⬅ Volver</button>
+    </div>
+
+    <!-- MULTI -->
+    <div id="multi" class="seccion">
+        <h3>Multiplicación</h3>
+        <input type="number">
+        <input type="number">
+        <button>Calcular</button>
+        <button onclick="volver()">⬅ Volver</button>
+    </div>
+
+    <!-- DIV -->
+    <div id="div" class="seccion">
+        <h3>División</h3>
+        <input type="number">
+        <input type="number">
+        <button>Calcular</button>
+        <button onclick="volver()">⬅ Volver</button>
+    </div>
+
+</div>
+
+<script>
+function mostrar(seccion) {
+    document.getElementById("menu").style.display = "none";
+
+    let secciones = document.querySelectorAll(".seccion");
+    secciones.forEach(s => s.style.display = "none");
+
+    document.getElementById(seccion).style.display = "block";
+}
+
+function volver() {
+    let secciones = document.querySelectorAll(".seccion");
+    secciones.forEach(s => s.style.display = "none");
+
+    document.getElementById("menu").style.display = "block";
+}
+</script>
+
+</body>
+</html>
