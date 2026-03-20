@@ -22,3 +22,4 @@ class Calculadora:
     def restar(self):
         self.resta=self.num1-self.num2
         print("La resta es:", self.resta)
+        print("Prueba de cambios para ver si se sube")
