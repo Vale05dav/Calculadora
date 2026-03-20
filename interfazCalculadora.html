@@ -20,6 +20,7 @@ body {
     border-radius: 20px;
     width: 350px;
     text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .seccion {
@@ -47,6 +48,14 @@ input {
     width: 90%;
     padding: 12px;
     margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.resultado {
+    font-weight: bold;
+    margin-top: 10px;
+    display: none;
 }
 </style>
 </head>
@@ -66,9 +75,10 @@ input {
     <!-- SUMA -->
     <div id="suma" class="seccion">
         <h3>Suma</h3>
-        <input type="number" placeholder="Número 1">
-        <input type="number" placeholder="Número 2">
-        <button>Calcular</button>
+        <input type="number">
+        <input type="number">
+        <p class="resultado" id="rs">Resultado:</p>
+        <button onclick="mostrarResultado('rs')">Calcular</button>
         <button onclick="volver()">⬅ Volver</button>
     </div>
 
@@ -77,25 +87,28 @@ input {
         <h3>Resta</h3>
         <input type="number">
         <input type="number">
-        <button>Calcular</button>
+        <p class="resultado" id="rr">Resultado:</p>
+        <button onclick="mostrarResultado('rr')">Calcular</button>
         <button onclick="volver()">⬅ Volver</button>
     </div>
 
-    <!-- MULTI -->
+    <!-- MULTIPLICACIÓN -->
     <div id="multi" class="seccion">
         <h3>Multiplicación</h3>
         <input type="number">
         <input type="number">
-        <button>Calcular</button>
+        <p class="resultado" id="rm">Resultado:</p>
+        <button onclick="mostrarResultado('rm')">Calcular</button>
         <button onclick="volver()">⬅ Volver</button>
     </div>
 
-    <!-- DIV -->
+    <!-- DIVISIÓN -->
     <div id="div" class="seccion">
         <h3>División</h3>
         <input type="number">
         <input type="number">
-        <button>Calcular</button>
+        <p class="resultado" id="rd">Resultado:</p>
+        <button onclick="mostrarResultado('rd')">Calcular</button>
         <button onclick="volver()">⬅ Volver</button>
     </div>
 
@@ -116,6 +129,10 @@ function volver() {
     secciones.forEach(s => s.style.display = "none");
 
     document.getElementById("menu").style.display = "block";
+}
+
+function mostrarResultado(id) {
+    document.getElementById(id).style.display = "block";
 }
 </script>
 
